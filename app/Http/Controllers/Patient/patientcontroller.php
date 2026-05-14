@@ -54,14 +54,14 @@ class PatientController extends Controller
                 ? Hash::make($request->email) 
                 : Hash::make($request->password);
 
-        // ২. ডাটাবেসে ডেটা সেভ করা
+
         Patient::create([
             'userid'   => $generatedUserId,
             'name'     => $request->name,
             'email'    => $request->email,
             'phone'    => $request->phone,
             'gender'   => $request->gender,
-            'dob'      => $request->dob,
+            'age'      => $request->age,
             'address'  => $request->address,
             'password' => $password,
             'role'     => 'patient',
