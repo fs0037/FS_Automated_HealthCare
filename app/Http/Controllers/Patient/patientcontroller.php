@@ -29,14 +29,41 @@ class PatientController extends Controller
     public function passwordVerify(Request $request)
     {
         $patient = Patient::where('email', $request->email)
-                          ->where('full_name', $request->fullname)
+                          ->where('userid', $request->userid) 
                           ->first();
 
         if ($patient) {
-            return back()->with('success', 'Account found! (Password reset process will be here)');
+            Session::put('reset_userid', $patient->userid);
+            return redirect()->route('password.reset.page');
         }
 
-        return back()->with('error', 'Name or Email does not match our records!');
+        return back()->with('error', 'User ID or Email does not match our records!');
+    }
+
+    public function passwordUpdate(Request $request)
+    {
+        $request->validate([
+            'new_password' => 'required|min:6',
+            'confirm_password' => 'required|same:new_password'
+        ]);
+
+        $userid = Session::get('reset_userid');
+        
+        if (!$userid) {
+            return redirect()->route('password.recovery')->with('error', 'Session expired. Please verify your account again.');
+        }
+
+        $patient = Patient::where('userid', $userid)->first();
+        if ($patient) {
+            $patient->password = Hash::make($request->new_password);
+            $patient->save();
+            
+            Session::forget('reset_userid'); 
+            
+            return redirect()->route('login')->with('success', 'Password reset successful! Please login with your new password.');
+        }
+
+        return redirect()->route('password.recovery')->with('error', 'Something went wrong!');
     }
 
     

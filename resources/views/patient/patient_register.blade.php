@@ -4,19 +4,7 @@
     <title>FS | User Registration</title>
     <link rel="stylesheet" href="{{ asset('Patient/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('Patient/vendor/fontawesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('Patient/assets/css/style.css') }}" />
-
-    <script type="text/javascript">
-        function valid() {
-            if(document.registration.password.value != document.registration.password_again.value) {
-                alert("Password and Confirm Password Field do not match!!");
-                document.registration.password_again.focus();
-                return false;
-            }
-            return true;
-        }
-    </script>
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('Patient/assets/css/style.css') }}" />   
 </head>
 
 <body class="register">
@@ -120,6 +108,16 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+        function valid() {
+            if(document.registration.password.value != document.registration.password_again.value) {
+                alert("Password and Confirm Password Field do not match!!");
+                document.registration.password_again.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
     <script src="{{ asset('Patient/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('Patient/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 </body>
