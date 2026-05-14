@@ -15,7 +15,7 @@ class ContactController extends Controller {
             'description' => $request->description,
         ]);
 
-        return back()->with('success', 'মেসেজটি সফলভাবে সেভ হয়েছে!');
+        return back()->with('success', 'The message was successfully saved!');
     }
 
     public function index() {
