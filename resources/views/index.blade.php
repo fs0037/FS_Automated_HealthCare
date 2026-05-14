@@ -1,45 +1,8 @@
-<!doctype html>
-<html lang="en">
+@extends('master')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Automated Health Care System</title>
+@section('title', 'Home - Automated Health Care System')
 
-    <link rel="shortcut icon" href="{{ asset('assets/images/fav.jpg') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/fontawsom-all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}" />
-    
-</head>
-
-<body>
-    <header id="menu-jk">
-        <div id="nav-head" class="header-nav">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2 col-md-3 col-sm-12" style="color:#000;font-weight:bold; font-size:42px; margin-top: 1% !important;">FS
-                       <a data-toggle="collapse" data-target="#menu" href="#menu" ><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
-                    </div>
-                    <div id="menu" class="col-lg-8 col-md-9 d-none d-md-block nav-item">
-                        <ul>
-                            <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ route('hospital.services') }}">Services</a></li>
-                            <li><a href="{{ route('hospital.about') }}">About Us</a></li>
-                            <li><a href="{{ route('hospital.gallery') }}">Gallery</a></li>
-                            <li><a href="{{ route('hospital.contact') }}">Contact Us</a></li>
-                            <li><a href="{{ route('hospital.logins') }}">Logins</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-2 d-none d-lg-block appoint">
-                        <a class="btn btn-success" href="{{ url('hms/user-login') }}">Book an Appointment</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    
+@section('content')
     <div class="slider-detail">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -72,9 +35,71 @@
         </div>
     </div>
     
+    <section id="services" class="key-features-department">
+        <div class="container">
+            <div class="inner-title text-center">
+                <h2>Our Key Features</h2>
+                <p>Take a look at some of our key features</p>
+            </div>
 
-    @include('services')
+            <div class="row">
+                
+                <div class="col-lg-4 col-md-6">
+                    <a href="{{ url('/#lab_test') }}" class="service-link">
+                        <div class="single-key">
+                            <i class="fas fa-heartbeat"></i>
+                            <h5>Cardiology</h5>
+                        </div>
+                    </a>
+                </div>
 
+                <div class="col-lg-4 col-md-6">
+                    <a href="{{ url('/#lab_test') }}" class="service-link">
+                        <div class="single-key">
+                            <i class="fas fa-ribbon"></i>
+                            <h5>Orthopaedic</h5>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <a href="{{ url('/#lab_test') }}" class="service-link">
+                        <div class="single-key">
+                            <i class="fab fa-monero"></i>
+                            <h5>Neurologist</h5>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <a href="{{ url('/#lab_test') }}" class="service-link">
+                        <div class="single-key">
+                            <i class="fas fa-capsules"></i>
+                            <h5>Pharma Pipeline</h5>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <a href="{{ url('/#lab_test') }}" class="service-link">
+                        <div class="single-key">
+                            <i class="fas fa-prescription-bottle-alt"></i>
+                            <h5>Pharma Team</h5>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <a href="{{ url('/#lab_test') }}" class="service-link">
+                        <div class="single-key">
+                            <i class="far fa-thumbs-up"></i>
+                            <h5>High Quality treatments</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="about_us" class="about-us" style="padding: 60px 0;">
         <div class="container">
@@ -144,29 +169,5 @@
             </div>
         </div>
     </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-12 map-img">
-                    <h2>Contact Us</h2>
-                    <address class="md-margin-bottom-40">
-                        @if($contactData)
-                            {!! $contactData->PageDescription !!} <br>
-                            Phone: {{ $contactData->MobileNumber }} <br>
-                            Email: <a href="mailto:{{ $contactData->Email }}" class="">{{ $contactData->Email }}</a><br>
-                            Timing: {{ $contactData->OpenningTime }}
-                        @endif
-                    </address>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-    <script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/script.js') }}"></script>
-</body>
-</html>
+@endsection
 
