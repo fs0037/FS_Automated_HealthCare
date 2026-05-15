@@ -28,15 +28,17 @@
 
                             <div class="form-group">
                                 <span class="input-icon">
-                                    <input type="text" class="form-control" name="userid" placeholder="Registered User ID (e.g. SF001)" required>
                                     <i class="fa fa-id-badge"></i>
+                                    <label for="userid">User ID</label>
+                                    <input type="text" class="form-control" name="userid" placeholder="Registered User ID (e.g. SF001)" required>
                                 </span>
                             </div>
 
                             <div class="form-group">
                                 <span class="input-icon">
+                                    <i class="fa fa-envelope"></i>
+                                    <label for="email">Email</label>
                                     <input type="email" class="form-control" name="email" placeholder="Registered Email" required>
-                                    <i class="fa fa-envelope"></i> 
                                 </span>
                             </div>
 

@@ -31,16 +31,20 @@
                                 <div class="col-md-6">
                                     <h5 style="color: #1dc8cd; font-weight: bold; margin-bottom: 15px;">Personal Details</h5>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="name" placeholder="Full Name" value="{{ old('name') }}" required>
+                                        <label for="exampleInputPassword1">Full Name</label>
+                                        <input type="text" class="form-control" name="name" placeholder="Enter Full Name" value="{{ old('name') }}" required>
                                     </div>
                                     <div class="form-group">
+                                        <label for="exampleInputPassword1">Address</label>
                                         <input type="text" class="form-control" name="address" placeholder="Address" value="{{ old('address') }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="phone" placeholder="Phone Number" value="{{ old('phone') }}" required>
+                                        <label for="exampleInputPassword1">Phone Number</label>
+                                        <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number" value="{{ old('phone') }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" name="age" placeholder="Age" value="{{ old('age') }}" required>
+                                        <label for="exampleInputPassword1">Age</label>
+                                        <input type="number" class="form-control" name="age" placeholder="Enter Age" value="{{ old('age') }}" required>
                                     </div>
                                     <div class="form-group" style="padding-left: 10px;">
                                         <label class="block" style="font-weight: bold; color: #555;">Gender:</label>
@@ -61,20 +65,23 @@
                                     <h5 style="color: #1dc8cd; font-weight: bold; margin-bottom: 15px;">Account Details</h5>
                                     <div class="form-group">
                                         <span class="input-icon">
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" value="{{ old('email') }}" required>
-                                            <i class="fa fa-envelope"></i> 
+                                            <i class="fa fa-envelope"></i>
+                                            <label for="exampleInputPassword1">Email Address</label>
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email Address" value="{{ old('email') }}" required>
                                         </span>
                                     </div>
                                     <div class="form-group">
                                         <span class="input-icon">
-                                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                                             <i class="fa fa-lock"></i> 
+                                            <label for="exampleInputPassword1">Password</label>
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
                                         </span>
                                     </div>
                                     <div class="form-group">
                                         <span class="input-icon">
+                                            <i class="fa fa-lock"></i>
+                                            <label for="exampleInputPassword1">Confirm Password</label>
                                             <input type="password" class="form-control" id="password_again" name="password_again" placeholder="Confirm Password" required>
-                                            <i class="fa fa-lock"></i> 
                                         </span>
                                     </div>
                                     <div class="form-group" style="padding-left: 10px;">

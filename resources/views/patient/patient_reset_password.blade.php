@@ -34,15 +34,17 @@
 
                             <div class="form-group">
                                 <span class="input-icon">
-                                    <input type="password" class="form-control" name="new_password" placeholder="New Password (Min 6 characters)" required>
                                     <i class="fa fa-lock"></i>
+                                    <label for="new_password">New Password</label>
+                                    <input type="password" class="form-control" name="new_password" placeholder="Enter New Password (Min 6 characters)" required>
                                 </span>
                             </div>
 
                             <div class="form-group">
                                 <span class="input-icon">
+                                    <i class="fa fa-lock"></i>
+                                    <label for="confirm_password">Confirm Password</label>
                                     <input type="password" class="form-control" name="confirm_password" placeholder="Confirm New Password" required>
-                                    <i class="fa fa-check-circle"></i> 
                                 </span>
                             </div>
 

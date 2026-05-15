@@ -8,17 +8,15 @@ use App\Models\Patient\patient;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
-class PatientController extends Controller
+class patientcontroller extends Controller
 {
     public function loginSubmit(Request $request)
     {
         $patient = Patient::where('userid', $request->userid)->first();
 
         if ($patient && Hash::check($request->password, $patient->password)) {
-            
             Session::put('patient_id', $patient->id);
             Session::put('patient_name', $patient->name);
-            
             return redirect()->route('patient.dashboard')->with('success', 'Successfully Logged In!');
         }
 
@@ -58,7 +56,6 @@ class PatientController extends Controller
             $patient->save();
             
             Session::forget('reset_userid'); 
-            
             return redirect()->route('login')->with('success', 'Password reset successful! Please login with your new password.');
         }
 
@@ -74,11 +71,9 @@ class PatientController extends Controller
         ]);
 
         $generatedUserId = Patient::generatePatientId();
-
         $password = $request->created_by == 'reception' 
                 ? Hash::make($request->email) 
                 : Hash::make($request->password);
-
 
         Patient::create([
             'userid'   => $generatedUserId,
@@ -97,21 +92,12 @@ class PatientController extends Controller
 
     public function editProfile()
     {
-        if(!Session::has('patient_id')){ 
-            return redirect()->route('login'); 
-        }
-
         $patient = Patient::find(Session::get('patient_id'));
-
         return view('patient.edit-profile', compact('patient'));
     }
 
     public function updateProfile(Request $request)
     {
-        if(!Session::has('patient_id')){
-            return redirect()->route('login');
-        }
-
         $patient = Patient::find(Session::get('patient_id'));
         $patient->name = $request->name;
         $patient->address = $request->address;
@@ -128,19 +114,11 @@ class PatientController extends Controller
 
     public function changePassword()
     {
-        if(!Session::has('patient_id')){
-            return redirect()->route('login');
-        }
-        
         return view('patient.change-password');
     }
 
     public function updatePassword(Request $request)
     {
-        if(!Session::has('patient_id')){
-            return redirect()->route('login');
-        }
-
         $request->validate([
             'cpass'  => 'required',
             'npass'  => 'required|min:6',
@@ -168,8 +146,13 @@ class PatientController extends Controller
         return redirect()->route('login')->with('success', 'You have successfully logged out!');
     }
 
+    public function bookAppointment()
+    {
+        return view('patient.book_appointment');
+    }
+
+    public function bookAppointmentSubmit(Request $request)
+    {
+        return back()->with('success', 'Demo: Your appointment request submitted successfully (Database integration pending)!');
+    }
 }
-
-
-
-

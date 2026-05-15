@@ -33,14 +33,17 @@
 
                             <div class="form-group">
                                 <span class="input-icon">
-                                    <input type="text" class="form-control" name="userid" placeholder="(User ID)" required>
                                     <i class="fa fa-user"></i> 
+                                    <label for="exampleInputPassword1">User ID</label>
+                                    <input type="text" class="form-control" name="userid" placeholder="(Enter User ID)" required>
                                 </span>
                             </div>
                             <div class="form-group form-actions">
                                 <span class="input-icon">
-                                    <input type="password" class="form-control password" name="password" placeholder="Password" required>
                                     <i class="fa fa-lock"></i>
+                                    <label for="inputPassword">Password</label>
+                                    <input type="password" class="form-control password" name="password" placeholder="Enter Password" required>
+                                    
                                 </span>
                                 <a href="{{ route('password.recovery') }}" style="float: right; margin-top: 10px; color: #ff4757; font-weight: 600;">
                                     Forgot Password?

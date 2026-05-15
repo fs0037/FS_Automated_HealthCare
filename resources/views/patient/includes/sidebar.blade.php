@@ -14,7 +14,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('patient.book_appointment') }}">
                         <div class="item-content">
                             <div class="item-media"><i class="ti-pencil-alt"></i></div>
                             <div class="item-inner"><span class="title"> Book Appointment </span></div>
