@@ -28,8 +28,8 @@
                 </a>
                 <ul class="dropdown-menu dropdown-dark">
                     <li><a href="{{ route('patient.profile') }}">My Profile</a></li>
-                    <li><a href="#">Change Password</a></li>
-                    <li><a href="#">Log Out</a></li>
+                    <li><a href="{{ route('patient.change-password') }}">Change Password</a></li>
+                    <li><a href="{{ route('patient.logout') }}">Log Out</a></li>
                 </ul>
             </li>
         </ul>

@@ -102,7 +102,7 @@ class PatientController extends Controller
         }
 
         $patient = Patient::find(Session::get('patient_id'));
-        
+
         return view('patient.edit-profile', compact('patient'));
     }
 
@@ -126,7 +126,47 @@ class PatientController extends Controller
         return back()->with('success', 'Your Profile Updated Successfully!');
     }
 
+    public function changePassword()
+    {
+        if(!Session::has('patient_id')){
+            return redirect()->route('login');
+        }
+        
+        return view('patient.change-password');
+    }
 
+    public function updatePassword(Request $request)
+    {
+        if(!Session::has('patient_id')){
+            return redirect()->route('login');
+        }
+
+        $request->validate([
+            'cpass'  => 'required',
+            'npass'  => 'required|min:6',
+            'cfpass' => 'required|same:npass'
+        ]);
+
+        $patient = Patient::find(Session::get('patient_id'));
+
+        if (Hash::check($request->cpass, $patient->password)) {
+            $patient->password = Hash::make($request->npass);
+            $patient->save();
+            
+            return back()->with('success', 'Password Changed Successfully !!');
+        } 
+        else {
+            return back()->with('error', 'Old Password does not match !!');
+        }
+    }
+
+    public function logout()
+    {
+        Session::forget('patient_id');
+        Session::forget('patient_name');
+        
+        return redirect()->route('login')->with('success', 'You have successfully logged out!');
+    }
 
 }
 

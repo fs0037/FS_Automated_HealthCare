@@ -62,6 +62,14 @@ Route::get('/patient-dashboard', function () {
     return view('patient.dashboard');
 })->name('patient.dashboard');
 
+// Patient Change Password
+Route::get('/patient-change-password', [PatientController::class, 'changePassword'])->name('patient.change-password');
+Route::post('/patient-change-password-submit', [PatientController::class, 'updatePassword'])->name('patient.update-password');
+
+// Patient Logout
+Route::get('/patient-logout', [PatientController::class, 'logout'])->name('patient.logout');
+
+
 // Routes for submitting forms (these will go to the controller)
 Route::post('/patient-login-submit', [PatientController::class, 'loginSubmit'])->name('login.submit');
 Route::post('/patient-forgot-password-submit', [PatientController::class, 'passwordVerify'])->name('password.verify');
