@@ -64,7 +64,7 @@
                         <img src="{{ asset('assets/images/admin.jpg') }}" alt="Admin">
                         <h5>Admin Login</h5>
                         <p>Full control over the hospital management system.</p>
-                        <a href="#" class="btn btn-click">Click Here</a>
+                        <a href="{{ route('admin.login') }}" class="btn btn-click">Click Here</a>
                     </div>
                 </div>
             </div>

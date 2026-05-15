@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Patient\patientcontroller;
+use App\Http\Controllers\Admin\AdminController;
 
 
 // Public Routes
@@ -68,4 +69,17 @@ Route::middleware(['patientAuth'])->group(function () {
 
     // Logout
     Route::get('/patient-logout', [patientcontroller::class, 'logout'])->name('patient.logout');
+
 });
+
+
+// Admin Authentication Routes
+// Admin Login
+Route::get('//admin-login', function () { return view('admin.admin_login'); })->name('login');
+Route::post('/admin-login-submit', [AdminController::class, 'loginSubmit'])->name('admin.login.submit');
+
+// Admin Dashboard (Demo route for now)
+Route::get('/admin-dashboard', function () {
+    if(!Session::has('admin_id')){ return redirect()->route('admin.login'); }
+    return "<h1>Welcome to Admin Dashboard!</h1> <p>This page will be designed later.</p>";
+})->name('admin.dashboard');
