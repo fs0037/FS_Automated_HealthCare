@@ -75,11 +75,15 @@ Route::middleware(['patientAuth'])->group(function () {
 
 // Admin Authentication Routes
 // Admin Login
-Route::get('//admin-login', function () { return view('admin.admin_login'); })->name('login');
+Route::get('/admin-login', function () { return view('admin.admin_login'); })->name('admin.login');
 Route::post('/admin-login-submit', [AdminController::class, 'loginSubmit'])->name('admin.login.submit');
 
-// Admin Dashboard (Demo route for now)
-Route::get('/admin-dashboard', function () {
-    if(!Session::has('admin_id')){ return redirect()->route('admin.login'); }
-    return "<h1>Welcome to Admin Dashboard!</h1> <p>This page will be designed later.</p>";
-})->name('admin.dashboard');
+// Admin Protected Routes (Middleware applied)
+Route::middleware(['adminAuth'])->group(function () {
+    
+    // Dashboard
+    Route::get('/admin-dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    
+    // Admin Logout (যদি আগে না দিয়ে থাকেন)
+    Route::get('/admin-logout', [AdminController::class, 'logout'])->name('admin.logout');
+});

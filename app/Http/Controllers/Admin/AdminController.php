@@ -10,14 +10,6 @@ use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
-    public function login()
-    {
-        if(Session::has('admin_id')){
-            return redirect()->route('admin.dashboard');
-        }
-        return view('admin.admin_login');
-    }
-
     public function loginSubmit(Request $request)
     {
         $request->validate([
@@ -35,6 +27,19 @@ class AdminController extends Controller
         }
 
         return back()->with('error', 'Invalid Email or Password!');
+    }
+
+    public function dashboard()
+    {
+        $data = [
+            'totalUsers'        => 0,
+            'totalDoctors'      => 0,
+            'totalAppointments' => 0,
+            'totalPatients'     => 0,
+            'newQueries'        => 0,
+        ];
+
+        return view('admin.dashboard', $data);
     }
 
     public function logout()
