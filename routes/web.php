@@ -58,6 +58,7 @@ Route::get('/patient-reset-password', function () {
 
 // Patient Dashboard
 Route::get('/patient-dashboard', function () {
+    if(!Session::has('patient_id')){ return redirect()->route('login'); }
     return view('patient.dashboard');
 })->name('patient.dashboard');
 
@@ -66,5 +67,8 @@ Route::post('/patient-login-submit', [PatientController::class, 'loginSubmit'])-
 Route::post('/patient-forgot-password-submit', [PatientController::class, 'passwordVerify'])->name('password.verify');
 Route::post('/patient-registration-submit', [PatientController::class, 'register'])->name('patient.register.submit');
 Route::post('/patient-reset-password-submit', [PatientController::class, 'passwordUpdate'])->name('password.update');
+Route::get('/patient-profile', [PatientController::class, 'editProfile'])->name('patient.profile');
+Route::post('/patient-profile-update', [PatientController::class, 'updateProfile'])->name('patient.profile.update');
+
 
 

@@ -25,7 +25,6 @@ class PatientController extends Controller
         return back()->with('error', 'Invalid User ID or Password!');
     }
 
-
     public function passwordVerify(Request $request)
     {
         $patient = Patient::where('email', $request->email)
@@ -66,7 +65,6 @@ class PatientController extends Controller
         return redirect()->route('password.recovery')->with('error', 'Something went wrong!');
     }
 
-    
     public function register(Request $request)
     {
         $request->validate([
@@ -96,4 +94,42 @@ class PatientController extends Controller
 
         return redirect()->route('login')->with('success', "Successfully Created Account..! Your User ID: $generatedUserId");
     }
+
+    public function editProfile()
+    {
+        if(!Session::has('patient_id')){ 
+            return redirect()->route('login'); 
+        }
+
+        $patient = Patient::find(Session::get('patient_id'));
+        
+        return view('patient.edit-profile', compact('patient'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        if(!Session::has('patient_id')){
+            return redirect()->route('login');
+        }
+
+        $patient = Patient::find(Session::get('patient_id'));
+        $patient->name = $request->name;
+        $patient->address = $request->address;
+        $patient->phone = $request->phone;
+        $patient->gender = $request->gender;
+        $patient->age = $request->age;
+        $patient->email = $request->email;
+        $patient->save();
+
+        Session::put('patient_name', $patient->name);
+
+        return back()->with('success', 'Your Profile Updated Successfully!');
+    }
+
+
+
 }
+
+
+
+

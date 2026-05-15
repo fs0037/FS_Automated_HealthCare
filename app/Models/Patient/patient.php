@@ -32,7 +32,7 @@ class Patient extends Authenticatable
             $number = 1;
         } 
         else {
-            $lastIdNumber = intval(substr($lastUser->userid, 5)); 
+            $lastIdNumber = intval(substr($lastUser->userid, 2)); 
             $number = $lastIdNumber + 1;
         }
 
