@@ -21,9 +21,9 @@
                         </div>
                     </a>
                     <ul class="sub-menu">
-                        <li><a href="#"><span class="title"> Doctor Specialization </span></a></li>
-                        <li><a href="#"><span class="title"> Add Doctor</span></a></li>
-                        <li><a href="#"><span class="title"> Manage Doctors </span></a></li>
+                        <li><a href="{{ route('admin.doctor.specialization') }}"><span class="title"> Doctor Specialization </span></a></li>
+                        <li><a href="{{ route('admin.add.doctor') }}"><span class="title"> Add Doctor</span></a></li>
+                        <li><a href="{{ route('admin.manage.doctors') }}"><span class="title"> Manage Doctors </span></a></li>
                     </ul>
                 </li>
                 <li>

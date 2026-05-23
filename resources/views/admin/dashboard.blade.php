@@ -39,7 +39,7 @@
                     <span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-users fa-stack-1x fa-inverse"></i> </span>
                     <h2 class="StepTitle">Manage Doctors</h2>
                     <p class="cl-effect-1">
-                        <a href="#">Total Doctors : {{ $totalDoctors }} </a>
+                        <a href="{{ route('admin.manage.doctors') }}">Total Doctors : {{ $totalDoctors }} </a>
                     </p>
                 </div>
             </div>

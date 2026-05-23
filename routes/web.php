@@ -18,9 +18,6 @@ Route::get('/gallery', [HomeController::class, 'showGallery'])->name('hospital.g
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('hospital.contact');
 Route::get('/logins-home', function () { return view('logins'); })->name('hospital.logins');
 
-// Admin Queries Route
-Route::get('/admin/queries', [ContactController::class, 'index'])->name('admin.queries');
-
 
 // Patient Authentication Routes
 // Patient Login
@@ -78,12 +75,29 @@ Route::middleware(['patientAuth'])->group(function () {
 Route::get('/admin-login', function () { return view('admin.admin_login'); })->name('admin.login');
 Route::post('/admin-login-submit', [AdminController::class, 'loginSubmit'])->name('admin.login.submit');
 
+// Admin Queries Route
+Route::get('/admin/queries', [ContactController::class, 'index'])->name('admin.queries');
+
 // Admin Protected Routes (Middleware applied)
 Route::middleware(['adminAuth'])->group(function () {
     
     // Dashboard
     Route::get('/admin-dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     
-    // Admin Logout (যদি আগে না দিয়ে থাকেন)
+    // Admin Logout
     Route::get('/admin-logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+    // Doctor Specialization Routes
+    Route::get('/admin/doctor-specialization', [AdminController::class, 'doctorSpecialization'])->name('admin.doctor.specialization');
+    Route::post('/admin/doctor-specialization-add', [AdminController::class, 'addSpecialization'])->name('admin.add.specialization');
+    Route::get('/admin/doctor-specialization-delete/{id}', [AdminController::class, 'deleteSpecialization'])->name('admin.delete.specialization');
+
+    // Doctor Routes
+    Route::get('/admin/add-doctor', [AdminController::class, 'addDoctor'])->name('admin.add.doctor');
+    Route::post('/admin/store-doctor', [AdminController::class, 'storeDoctor'])->name('admin.store.doctor');
+    
+    Route::get('/admin/manage-doctors', [AdminController::class, 'manageDoctors'])->name('admin.manage.doctors');
+    Route::get('/admin/delete-doctor/{id}', [AdminController::class, 'deleteDoctor'])->name('admin.delete.doctor');
+
 });
+
