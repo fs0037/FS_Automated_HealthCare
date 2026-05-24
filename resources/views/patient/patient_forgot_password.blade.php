@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Patient Password Recovery</title>
-    <link rel="stylesheet" href="{{ asset('Patient/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('Patient/vendor/fontawesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('Patient/assets/css/style.css') }}">
+    <title>Patient - Password Recovery</title>
+    <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
 </head>
 
 <body class="forgot-password">
@@ -28,7 +28,7 @@
 
                             <div class="form-group">
                                 <span class="input-icon">
-                                    <i class="fa fa-id-badge"></i>
+                                    <i class="fa fa-user"></i>
                                     <label for="userid">User ID</label>
                                     <input type="text" class="form-control" name="userid" placeholder="Registered User ID (e.g. SF001)" required>
                                 </span>
@@ -54,6 +54,10 @@
                             </div>
                         </fieldset>
                     </form>
+
+                    <div class="copyright" style="color: #888;">
+                        &copy; <span class="text-bold text-uppercase"> Automated Health Care System </span>
+                    </div>
                 </div>
             </div>
         </div>

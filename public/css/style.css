@@ -1,0 +1,271 @@
+/* ===================================== patient login CSS ================================== */
+
+body.login {
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)!important;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+}
+main-login {
+    margin-top: 0 !important;
+}
+.logo h2 {
+    color: #ffffff !important;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+.box-login {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border: none;
+}
+.legend {
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #0072ff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.form-control:focus {
+    background-color: #ffffff !important;
+    border-color: #1dc8cd !important;
+    box-shadow: 0 0 8px rgba(29, 200, 205, 0.4) !important;
+    outline: none;
+}
+.form-control::placeholder {
+    color: #6c757d !important;
+    font-weight: 500;
+    font-size: 14px;
+    opacity: 1;
+}
+.input-icon i {
+    color: #1dc8cd;
+    z-index: 10;
+}
+.btn-primary {
+    background-color: #0072ff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #005bb5;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
+}
+.new-account, .copyright {
+    text-align: center;
+    margin-top: 20px;
+}
+.new-account a {
+    color: #0072ff;
+    font-weight: bold;
+}
+
+
+/* ===================================== patient register CSS ================================== */
+
+body.register {
+    background: linear-gradient(135deg, #1de099 0%, #1dc8cd 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+    padding: 0 20px;
+}
+.main-register {
+    margin-top: 50px !important;
+    padding: 40px 20px;
+}
+.logo h2 {
+    color: #ffffff !important;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+.box-register {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border: none;
+}
+.legend {
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #1dc8cd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.form-control {
+    background-color: #f8f9fa !important;
+    border: 1px solid #ced4da !important;
+    color: #333333 !important;
+    border-radius: 25px;
+    padding: 10px 20px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+.form-control:focus {
+    background-color: #ffffff !important;
+    border-color: #1dc8cd !important;
+    box-shadow: 0 0 8px rgba(29, 200, 205, 0.4) !important;
+    outline: none;
+}
+.form-control::placeholder {
+    color: #6c757d !important;
+    font-weight: 500;
+    font-size: 14px;
+    opacity: 1;
+}
+.input-icon i {
+    color: #1dc8cd;
+    z-index: 10;
+}
+.btn-primary {
+    background-color: #1dc8cd;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #17a2b8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(29, 200, 205, 0.4);
+}
+.clip-radio label {
+    margin-right: 20px;
+    font-weight: normal;
+}
+.form-actions p {
+    margin-bottom: 15px;
+    text-align: center;
+}
+.form-actions p a {
+    color: #1dc8cd;
+    font-weight: bold;
+}
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+}
+
+/* ===================================== patient Forgot Password CSS ================================== */
+
+body.forgot-password {
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+}
+.main-forgot-password {
+     margin-top: 0 !important;
+}
+.logo h2 { 
+    color: #ffffff !important;
+    font-weight: 700; text-align: 
+    center; text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+.box-forgot-password {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border: none;
+}
+legend { 
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #0072ff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.form-control { 
+    border-radius: 25px;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    box-shadow: none !important;
+    margin-bottom: 15px;
+}
+.form-control:focus { 
+    border-color: #0072ff !important;
+    box-shadow: 0 0 8px rgba(0, 114, 255, 0.4) !important;
+    outline: none;
+}
+.input-icon i {
+    color: #0072ff;
+    z-index: 10;
+}
+.btn-primary { background-color: #0072ff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #005bb5;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
+}
+.new-account {
+    text-align: center;
+    margin-top: 20px;
+}
+.new-account a {
+    color: #0072ff;
+    font-weight: bold;
+}
+
+
+/* All From for Application */
+.input-group-custom {
+    position: relative;
+    width: 100%; /* বা আপনার প্রয়োজন মতো, যেমন 300px */
+    margin-bottom: 20px;
+}
+
+/* ইনপুট ফিল্ডের স্টাইল */
+.input-group-custom input {
+    width: 100%;
+    padding: 14px 10px;
+    font-size: 16px;
+    border: 1px solid #068fff; /* বর্ডারের রঙ */
+    outline: none;
+    border-radius: 4px;
+    background-color: transparent; /* ব্যাকগ্রাউন্ড ট্রান্সপারেন্ট রাখা ভালো */
+}
+
+/* লেবেলের প্রাথমিক অবস্থান (মাঝখানে) */
+.input-group-custom label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #777;
+    font-size: 16px;
+    pointer-events: none; /* যাতে লেবেলের ওপর ক্লিক করলেও ইনপুট কাজ করে */
+    transition: 0.3s ease; /* স্মুথ অ্যানিমেশনের জন্য */
+    background-color: #fff; /* আপনার পেজের ব্যাকগ্রাউন্ড কালারের সাথে মেলাবেন */
+    padding: 0 5px;
+}
+
+/* ফোকাস করলে বা ফিল্ডে লেখা থাকলে লেবেল উপরে উঠে যাবে */
+.input-group-custom input:focus + label,
+.input-group-custom input:valid + label {
+    top: -1px; /* লেবেলটি একদম বর্ডারের উপরে চলে যাবে */
+    font-size: 14px;
+    color: #068fff; /* ফোকাস কালার */
+}

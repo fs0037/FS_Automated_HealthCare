@@ -24,7 +24,7 @@
                         <img src="{{ asset('assets/images/doctor.jpg') }}" alt="Doctor">
                         <h5>Doctors Login</h5>
                         <p>Manage your patients and schedules easily.</p>
-                        <a href="#" class="btn btn-click">Click Here</a>
+                        <a href="{{ route('doctor.login') }}" class="btn btn-click">Click Here</a>
                     </div>
                 </div>
 

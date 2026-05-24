@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Patient\patientcontroller;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Doctor\DoctorController;
 
 
 // Public Routes
@@ -43,7 +44,7 @@ Route::post('/patient-reset-password-submit', [patientcontroller::class, 'passwo
 
 
 
-// Protected Routes
+// Protected Routes (Middleware applied)
 // Patient Dashboard, Profile, Change Password, Logout
 Route::middleware(['patientAuth'])->group(function () {
     
@@ -100,4 +101,30 @@ Route::middleware(['adminAuth'])->group(function () {
     Route::get('/admin/delete-doctor/{id}', [AdminController::class, 'deleteDoctor'])->name('admin.delete.doctor');
 
 });
+
+// Doctor Authentication Routes
+// Doctor Login
+Route::get('/doctor-login', [DoctorController::class, 'login'])->name('doctor.login');
+Route::post('/doctor-login-submit', [DoctorController::class, 'loginSubmit'])->name('doctor.login.submit');
+
+// Doctor Forgot Password
+Route::get('/doctor-forgot-password', [DoctorController::class, 'forgotPassword'])->name('doctor.password.recovery');
+Route::post('/doctor-forgot-password-submit', [DoctorController::class, 'forgotPasswordSubmit'])->name('doctor.password.verify');
+
+// Doctor Reset Password Routes
+Route::get('/doctor-reset-password', [DoctorController::class, 'resetPassword'])->name('doctor.password.reset.page');
+Route::post('/doctor-reset-password-submit', [DoctorController::class, 'resetPasswordSubmit'])->name('doctor.password.reset.submit');
+
+// Doctor Protected Routes (Middleware applied)
+Route::middleware(['doctorAuth'])->group(function () {
+    
+    // Doctor Dashboard 
+    Route::get('/doctor-dashboard', [DoctorController::class, 'dashboard'])->name('doctor.dashboard');
+    
+    // Doctor Logout
+    Route::get('/doctor-logout', [DoctorController::class, 'logout'])->name('doctor.logout');
+    
+    
+});
+
 

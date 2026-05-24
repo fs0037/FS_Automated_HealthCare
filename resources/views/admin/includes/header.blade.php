@@ -17,7 +17,7 @@
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-right">
             <li style="padding-top:2% ">
-                <h2>Automated Health Care System</h2>
+                <h2>FS Automated HealthCare</h2>
             </li>
             <li class="dropdown current-user">
                 <a href class="dropdown-toggle" data-toggle="dropdown">

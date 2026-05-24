@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <title>Create New Password</title>
-    <link rel="stylesheet" href="{{ asset('Patient/vendor/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('Patient/vendor/fontawesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('Patient/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
 </head>
 
 <body class="forgot-password">
@@ -53,8 +53,19 @@
                                     Update Password <i class="fa fa-save"></i>
                                 </button>
                             </div>
+
+                            <div class="new-account">
+                                Remembered your password? 
+                                <a href="{{ route('login') }}">
+                                    Log-in
+                                </a>
+                            </div>
                         </fieldset>
                     </form>
+
+                    <div class="copyright">
+                        &copy; <span class="text-bold text-uppercase"> Automated Health Care System </span>
+                    </div>
                 </div>
             </div>
         </div>

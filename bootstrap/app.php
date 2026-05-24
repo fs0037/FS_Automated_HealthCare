@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'patientAuth' => \App\Http\Middleware\PatientMiddleware::class,
             'adminAuth' => \App\Http\Middleware\AdminMiddleware::class,
+            'doctorAuth'  => \App\Http\Middleware\DoctorMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
