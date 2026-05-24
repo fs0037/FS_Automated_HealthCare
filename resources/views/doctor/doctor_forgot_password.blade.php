@@ -12,8 +12,10 @@
     <div class="container">
         <div class="row">
             <div class="main-forgot-password col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <div class="logo">
-                    <a href="{{ url('/') }}" style="text-decoration: none;"><h2> FS | Password Recovery</h2></a>
+                <div class="fs">
+                    <h2 class="fs.fs1">
+                        <a href="{{ url('/') }}" class="fs.sf">FS | Password Recovery</a>
+                    </h2>
                 </div>
 
                 <div class="box-forgot-password">

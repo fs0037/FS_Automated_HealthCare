@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Doctor;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Doctor;
+use App\Models\Admin\DoctorSpecialization;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -97,6 +98,62 @@ class DoctorController extends Controller
     public function dashboard()
     {
         return view('doctor.dashboard');
+    }
+
+    public function editProfile()
+    {
+        $doctor = Doctor::find(Session::get('doctor_id'));
+        $specializations = DoctorSpecialization::all();
+        
+        return view('doctor.edit-profile', compact('doctor', 'specializations'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $request->validate([
+            'Doctorspecialization' => 'required',
+            'docname'              => 'required',
+            'clinicaddress'        => 'required',
+            'docfees'              => 'required',
+            'doccontact'           => 'required'
+        ]);
+
+        $doctor = Doctor::find(Session::get('doctor_id'));
+        $doctor->specilization = $request->Doctorspecialization;
+        $doctor->doctorName    = $request->docname;
+        $doctor->address       = $request->clinicaddress;
+        $doctor->docFees       = $request->docfees;
+        $doctor->contactno     = $request->doccontact;
+        $doctor->save();
+
+        Session::put('doctor_name', $doctor->doctorName);
+
+        return back()->with('success', 'Doctor Details updated Successfully!');
+    }
+
+    public function changePassword()
+    {
+        return view('doctor.change-password');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'cpass'  => 'required',
+            'npass'  => 'required|min:6',
+            'cfpass' => 'required|same:npass'
+        ]);
+
+        $doctor = Doctor::find(Session::get('doctor_id'));
+
+        if (Hash::check($request->cpass, $doctor->password)) {
+            $doctor->password = Hash::make($request->npass);
+            $doctor->save();
+            
+            return back()->with('success', 'Password Changed Successfully !!');
+        } else {
+            return back()->with('error', 'Old Password does not match !!');
+        }
     }
 
     public function logout()

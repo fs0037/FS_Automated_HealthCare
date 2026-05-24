@@ -28,8 +28,9 @@
                     <span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-smile-o fa-stack-1x fa-inverse"></i> </span>
                     <h2 class="StepTitle">My Profile</h2>
                     <p class="links cl-effect-1">
-                        <a href="#">Update Profile</a>
+                        <a href="{{ route('doctor.profile') }}">Update Profile</a>
                     </p>
+
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@
                     </ul>
                 </div>
                 <div class="col-sm-2 d-none d-lg-block appoint">
-                    <a class="btn btn-success" href="{{ url('hms/user-login') }}">Book an Appointment</a>
+                    <a class="btn btn-success" href="{{ url('/') }}">Book an Appointment</a>
                 </div>
             </div>
         </div>

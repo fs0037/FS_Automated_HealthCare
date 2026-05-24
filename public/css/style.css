@@ -1,4 +1,4 @@
-/* ===================================== patient login CSS ================================== */
+/* ===================================== login CSS ================================== */
 
 body.login {
     background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)!important;
@@ -10,12 +10,21 @@ body.login {
 main-login {
     margin-top: 0 !important;
 }
-.logo h2 {
+.fs { 
     color: #ffffff !important;
-    font-weight: 700;
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    margin-bottom: 20px;
+    font-weight: 700 !important;
+    text-align: center !important;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2) !important;
+    margin-bottom: 20px !important;    
+}
+.fs h2 {
+    user-select: none !important;
+}
+.fs a {
+    outline: none !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+    color: inherit;
 }
 .box-login {
     background: #ffffff;
@@ -70,7 +79,7 @@ main-login {
 }
 
 
-/* ===================================== patient register CSS ================================== */
+/* ===================================== register CSS ================================== */
 
 body.register {
     background: linear-gradient(135deg, #1de099 0%, #1dc8cd 100%);
@@ -84,12 +93,21 @@ body.register {
     margin-top: 50px !important;
     padding: 40px 20px;
 }
-.logo h2 {
+.fs { 
     color: #ffffff !important;
-    font-weight: 700;
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    margin-bottom: 20px;
+    font-weight: 700 !important;
+    text-align: center !important;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2) !important;
+    margin-bottom: 20px !important;    
+}
+.fs h2 {
+    user-select: none !important;
+}
+.fs a {
+    outline: none !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+    color: inherit;
 }
 .box-register {
     background: #ffffff;
@@ -160,30 +178,40 @@ body.register {
     color: #888;
 }
 
-/* ===================================== patient Forgot Password CSS ================================== */
+/* ===================================== Forgot Password CSS ================================== */
 
 body.forgot-password {
-    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%)!important;
+    min-height: 100vh!important;
+    display: flex!important;
+    align-items: center!important;
+    font-family: 'Raleway', sans-serif !important;
 }
 .main-forgot-password {
-     margin-top: 0 !important;
+    margin-top: 0 !important;
 }
-.logo h2 { 
+.fs { 
     color: #ffffff !important;
-    font-weight: 700; text-align: 
-    center; text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    margin-bottom: 20px;
+    font-weight: 700 !important;
+    text-align: center !important;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2) !important;
+    margin-bottom: 20px !important;    
+}
+.fs h2 {
+    user-select: none !important;
+}
+.fs a {
+    outline: none !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+    color: inherit;
 }
 .box-forgot-password {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 40px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    border: none;
+    background: #ffffff !important;
+    border-radius: 15px !important;
+    padding: 40px !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2) !important;
+    border: none !important;
 }
 legend { 
     font-weight: bold;

@@ -4,15 +4,17 @@
     <title>FS | User Registration</title>
     <link rel="stylesheet" href="{{ asset('Patient/vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('Patient/vendor/fontawesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('Patient/assets/css/style.css') }}" />   
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />   
 </head>
 
 <body class="register">
     <div class="container">
         <div class="row">
             <div class="main-register col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
-                <div class="logo">
-                    <a href="{{ url('/') }}" style="text-decoration: none;"><h2>FS | Patient Registration</h2></a>
+                <div class="fs">
+                    <h2 class="fs.fs1">
+                        <a href="{{ url('/') }}" class="fs.sf">FS | Patient Registration</a>
+                    </h2>
                 </div>
                 
                 <div class="box-register">

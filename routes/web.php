@@ -123,6 +123,14 @@ Route::middleware(['doctorAuth'])->group(function () {
     
     // Doctor Logout
     Route::get('/doctor-logout', [DoctorController::class, 'logout'])->name('doctor.logout');
+
+    // Edit Profile
+    Route::get('/doctor-profile', [DoctorController::class, 'editProfile'])->name('doctor.profile');
+    Route::post('/doctor-profile-update', [DoctorController::class, 'updateProfile'])->name('doctor.profile.update');
+
+    // Change Password
+    Route::get('/doctor-change-password', [DoctorController::class, 'changePassword'])->name('doctor.change-password');
+    Route::post('/doctor-change-password-submit', [DoctorController::class, 'updatePassword'])->name('doctor.update-password');
     
     
 });
