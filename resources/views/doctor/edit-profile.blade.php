@@ -25,32 +25,33 @@
                             <h5 class="panel-title">Edit Doctor</h5>
                         </div>
                         <div class="panel-body">
-                            
-                            <h4>{{ $doctor->doctorName }}'s Profile</h4>
-                            <p><b>Profile Reg. Date: </b>{{ $doctor->created_at }}</p>
-                            @if($doctor->updated_at != $doctor->created_at)
-                                <p><b>Profile Last Updation Date: </b>{{ $doctor->updated_at }}</p>
-                            @endif
-                            <hr />
-                            
-                            @if(session('success'))
-                                <div class="alert alert-success">{{ session('success') }}</div>
-                            @endif
-                            @if($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul style="margin-bottom: 0;">
-                                        @foreach($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
+                            <div class="profile">
+                                <h4>{{ $doctor->doctorName }}'s Profile</h4>
+                                <p><b>Profile Reg. Date: </b>{{ $doctor->created_at }}</p>
+                                @if($doctor->updated_at != $doctor->created_at)
+                                    <p><b>Profile Last Updation Date: </b>{{ $doctor->updated_at }}</p>
+                                @endif
+                                <hr />
+                                
+                                @if(session('success'))
+                                    <div class="alert alert-success">{{ session('success') }}</div>
+                                @endif
+                                @if($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul style="margin-bottom: 0;">
+                                            @foreach($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                            </div>
 
                             <form role="form" method="post" action="{{ route('doctor.profile.update') }}">
                                 @csrf
-                                <div class="form-group">
-                                    <label for="DoctorSpecialization">Doctor Specialization</label>
-                                    <select name="Doctorspecialization" class="form-control" required="required">
+                                <div class="form-g">
+                                    <label class="form-sf" for="DoctorSpecialization">Doctor Specialization</label>
+                                    <select name="Doctorspecialization" required="required">
                                         <option value="{{ $doctor->specilization }}">{{ $doctor->specilization }}</option>
                                         @foreach($specializations as $spec)
                                             @if($spec->specilization != $doctor->specilization)
@@ -59,30 +60,30 @@
                                         @endforeach
                                     </select>
                                 </div>
-
-                                <div class="form-group">
-                                    <label>Doctor Name</label>
-                                    <input type="text" name="docname" class="form-control" value="{{ $doctor->doctorName }}" required>
+ 
+                                <div class="form-g">
+                                    <label class="form-sf">Doctor Name</label>
+                                    <input type="text" name="docname" value="{{ $doctor->doctorName }}" required>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-g">
                                     <label>Clinic Address</label>
-                                    <textarea name="clinicaddress" class="form-control" required>{{ $doctor->address }}</textarea>
+                                    <textarea name="clinicaddress" required>{{ $doctor->address }}</textarea>
                                 </div>
                                 
-                                <div class="form-group">
+                                <div class="form-g">
                                     <label>Consultancy Fees</label>
-                                    <input type="text" name="docfees" class="form-control" value="{{ $doctor->docFees }}" required>
+                                    <input type="text" name="docfees" value="{{ $doctor->docFees }}" required>
                                 </div>
                                 
-                                <div class="form-group">
+                                <div class="form-g">
                                     <label>Contact no</label>
-                                    <input type="text" name="doccontact" class="form-control" value="{{ $doctor->contactno }}" required>
+                                    <input type="text" name="doccontact" value="{{ $doctor->contactno }}" required>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-g">
                                     <label>Doctor Email (Cannot be changed)</label>
-                                    <input type="email" name="docemail" class="form-control" readonly="readonly" value="{{ $doctor->docEmail }}">
+                                    <input type="email" name="docemail" readonly="readonly" value="{{ $doctor->docEmail }}">
                                 </div>
                                 
                                 <button type="submit" name="submit" class="btn btn-o btn-primary">

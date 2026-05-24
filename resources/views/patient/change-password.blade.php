@@ -43,19 +43,19 @@
 
                             <form role="form" name="chngpwd" method="post" action="{{ route('patient.update-password') }}">
                                 @csrf
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Current Password</label>
-                                    <input type="password" name="cpass" class="form-control" placeholder="Enter Current Password" required>
+                                <div class="input-group-custom">
+                                    <input type="password" id="cpass" name="cpass" required>
+                                    <label for="cpass">Current Password</label>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">New Password</label>
-                                    <input type="password" name="npass" class="form-control" placeholder="New Password" required>
+                                <div class="input-group-custom">
+                                    <input type="password" id="npass" name="npass" required>
+                                    <label for="npass">New Password</label>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Confirm Password</label>
-                                    <input type="password" name="cfpass" class="form-control" placeholder="Confirm Password" required>
+                                <div class="input-group-custom">
+                                    <input type="password" id="cfpass" name="cfpass" required>
+                                    <label for="cfpass">Confirm Password</label>
                                 </div>
                                 
                                 <button type="submit" name="submit" class="btn btn-o btn-primary">

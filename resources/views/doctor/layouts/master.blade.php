@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('Doctor/assets/css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('Doctor/assets/css/plugins.css') }}">
     <link rel="stylesheet" href="{{ asset('Doctor/assets/css/themes/theme-1.css') }}" id="skin_color" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
     <div id="app">      

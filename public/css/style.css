@@ -258,25 +258,24 @@ legend {
 }
 
 
+
 /* All From for Application */
 .input-group-custom {
     position: relative;
-    width: 100%; /* বা আপনার প্রয়োজন মতো, যেমন 300px */
+    width: 100%; 
     margin-bottom: 20px;
 }
 
-/* ইনপুট ফিল্ডের স্টাইল */
 .input-group-custom input {
     width: 100%;
     padding: 14px 10px;
     font-size: 16px;
-    border: 1px solid #068fff; /* বর্ডারের রঙ */
+    border: 1px solid #068fff;
     outline: none;
     border-radius: 4px;
-    background-color: transparent; /* ব্যাকগ্রাউন্ড ট্রান্সপারেন্ট রাখা ভালো */
+    background-color: transparent;
 }
 
-/* লেবেলের প্রাথমিক অবস্থান (মাঝখানে) */
 .input-group-custom label {
     position: absolute;
     top: 50%;
@@ -284,16 +283,58 @@ legend {
     transform: translateY(-50%);
     color: #777;
     font-size: 16px;
-    pointer-events: none; /* যাতে লেবেলের ওপর ক্লিক করলেও ইনপুট কাজ করে */
-    transition: 0.3s ease; /* স্মুথ অ্যানিমেশনের জন্য */
-    background-color: #fff; /* আপনার পেজের ব্যাকগ্রাউন্ড কালারের সাথে মেলাবেন */
+    pointer-events: none; 
+    transition: 0.3s ease;
+    background-color: #fff;
     padding: 0 5px;
 }
 
-/* ফোকাস করলে বা ফিল্ডে লেখা থাকলে লেবেল উপরে উঠে যাবে */
 .input-group-custom input:focus + label,
 .input-group-custom input:valid + label {
-    top: -1px; /* লেবেলটি একদম বর্ডারের উপরে চলে যাবে */
+    top: -1px; 
     font-size: 14px;
-    color: #068fff; /* ফোকাস কালার */
+    color: #068fff;
+}
+
+.profile {
+    color: #068fff;
+}
+.profile h4 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #068fff;
+}
+
+.form-g {
+    position: relative;
+    width: 100%; 
+    margin-bottom: 10px;
+}
+.form-g input {
+    width: 100%;
+    padding: 9px 5px;
+    font-size: 16px;
+    border: 1px solid #068fff;
+    outline: none;
+    border-radius: 4px;
+    background-color: transparent;
+}
+.form-g select {
+    width: 100%;
+    padding: 9px 5px;
+    font-size: 16px;
+    border: 1px solid #068fff;
+    outline: none;
+    border-radius: 4px;
+    background-color: transparent;
+}
+.form-g label {
+    color: #068fff;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.form-sf1 {
+    border: 1px solid #068fff;
 }

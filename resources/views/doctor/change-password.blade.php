@@ -41,20 +41,22 @@
                                     </ul>
                                 </div>
                             @endif
-
+ 
                             <form role="form" method="post" action="{{ route('doctor.update-password') }}">
                                 @csrf
-                                <div class="form-group">
-                                    <label>Current Password</label>
-                                    <input type="password" name="cpass" class="form-control" placeholder="Enter Current Password" required>
+                                <div class="input-group-custom">
+                                    <input type="password" id="cpass" name="cpass" required>
+                                    <label for="cpass">Current Password</label>
                                 </div>
-                                <div class="form-group">
-                                    <label>New Password</label>
-                                    <input type="password" name="npass" class="form-control" placeholder="New Password" required>
+                                
+                                <div class="input-group-custom">
+                                    <input type="password" id="npass" name="npass" required>
+                                    <label for="npass">New Password</label>
                                 </div>
-                                <div class="form-group">
-                                    <label>Confirm Password</label>
-                                    <input type="password" name="cfpass" class="form-control" placeholder="Confirm Password" required>
+                                
+                                <div class="input-group-custom">
+                                    <input type="password" id="cfpass" name="cfpass" required>
+                                    <label for="cfpass">Confirm Password</label>
                                 </div>
                                 
                                 <button type="submit" name="submit" class="btn btn-o btn-primary">

@@ -29,39 +29,41 @@
                             <h5 class="panel-title">Edit Profile</h5>
                         </div>
                         <div class="panel-body">
-                            <h4>{{ $patient->name }}'s Profile</h4>
-                            <p><b>Profile Reg. Date: </b>{{ $patient->created_at->format('Y-m-d H:i:s') }}</p>
-                            <hr />  
+                            <div class="profile">
+                                <h4>{{ $patient->name }}'s Profile</h4>
+                                <p><b>Profile Reg. Date: </b>{{ $patient->created_at->format('Y-m-d H:i:s') }}</p>
+                                <hr /> 
+                            </div> 
 
                             <form role="form" method="post" action="{{ route('patient.profile.update') }}">
                                 @csrf
-                                <div class="form-group">
+                                <div class="form-g">
                                     <label for="fname">User Name</label>
-                                    <input type="text" name="name" class="form-control" value="{{ $patient->name }}" required>
+                                    <input type="text" name="name" value="{{ $patient->name }}" required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-g">
                                     <label for="address">Address</label>
-                                    <input type="text" name="address" class="form-control" value="{{ $patient->address }}" required>
+                                    <input type="text" name="address" value="{{ $patient->address }}" required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-g">
                                     <label for="phone">Phone Number</label>
-                                    <input type="text" name="phone" class="form-control" value="{{ $patient->phone }}" required>
+                                    <input type="text" name="phone" value="{{ $patient->phone }}" required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-g">
                                     <label for="gender">Gender</label>
-                                    <select name="gender" class="form-control" required>
+                                    <select name="gender" required>
                                         <option value="male" {{ $patient->gender == 'male' ? 'selected' : '' }}>Male</option>
                                         <option value="female" {{ $patient->gender == 'female' ? 'selected' : '' }}>Female</option>
                                         <option value="other" {{ $patient->gender == 'other' ? 'selected' : '' }}>Other</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-g">
                                     <label for="age">Age</label>
-                                    <input type="number" name="age" class="form-control" value="{{ $patient->age }}" required>
+                                    <input type="number" name="age" value="{{ $patient->age }}" required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-g">
                                     <label for="email">User Email</label>
-                                    <input type="email" name="email" class="form-control" value="{{ $patient->email }}" required>
+                                    <input type="email" name="email" value="{{ $patient->email }}" required>
                                 </div>
                                 <button type="submit" class="btn btn-o btn-primary">Update</button>
                             </form>
