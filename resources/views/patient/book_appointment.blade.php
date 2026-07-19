@@ -33,46 +33,38 @@
                             <form role="form" name="book" method="post" action="{{ route('patient.book-appointment.submit') }}">
                                 @csrf
 
+                                <!-- স্পেশালাইজেশন সিলেক্ট -->
                                 <div class="form-group">
-                                    <label for="DoctorSpecialization">Doctor Specialization</label>
-                                    <select name="Doctorspecialization" class="form-control" required>
+                                    <label>Doctor Specialization</label>
+                                    <select name="Doctorspecialization" class="form-control" id="specialization" required>
                                         <option value="">Select Specialization</option>
-                                        <option value="Cardiology">Cardiology (Demo)</option>
-                                        <option value="Neurology">Neurology (Demo)</option>
-                                        <option value="Orthopedics">Orthopedics (Demo)</option>
-                                        <option value="Pediatrics">Pediatrics (Demo)</option>
+                                        @foreach(\App\Models\Admin\DoctorSpecialization::all() as $spec)
+                                            <option value="{{ $spec->specilization }}">{{ $spec->specilization }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
+                                <!-- ডক্টর সিলেক্ট -->
                                 <div class="form-group">
-                                    <label for="doctor">Doctors</label>
+                                    <label>Doctors</label>
                                     <select name="doctor" class="form-control" id="doctor" required>
                                         <option value="">Select Doctor</option>
-                                        <option value="1">Dr. Demo One</option>
-                                        <option value="2">Dr. Demo Two</option>
-                                        <option value="3">Dr. Demo Three</option>
                                     </select>
                                 </div>
 
+                                <!-- ডেট সিলেক্ট -->
                                 <div class="form-group">
-                                    <label for="consultancyfees">Consultancy Fees</label>
-                                    <select name="fees" class="form-control" id="fees" required>
-                                        <option value="">Select Fees</option>
-                                        <option value="500">500 Tk</option>
-                                        <option value="800">800 Tk</option>
-                                        <option value="1000">1000 Tk</option>
+                                    <label>Date</label>
+                                    <input type="date" class="form-control" name="appdate" id="date" required min="{{ date('Y-m-d') }}">
+                                </div>
+
+                                <!-- সময় স্লট (যা অটোমেটিক আসবে) -->
+                                <div class="form-group">
+                                    <label>Available Time Slots</label>
+                                    <select name="apptime" class="form-control" id="slots" required>
+                                        <option value="">Select Date & Doctor first</option>
                                     </select>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="AppointmentDate">Date</label>
-                                    <input type="date" class="form-control" name="appdate" required min="{{ date('Y-m-d') }}">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="Appointmenttime">Time</label>
-                                    <input type="time" class="form-control" name="apptime" required>
-                                </div>                                                      
+                                </div>                                                    
                                 
                                 <button type="submit" name="submit" class="btn btn-o btn-primary">
                                     Submit
@@ -85,4 +77,27 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('#specialization').change(function() {
+        let spec = $(this).val();
+        $.get('/get-doctors/' + spec, function(data) {
+            $('#doctor').empty().append('<option>Select Doctor</option>');
+            data.forEach(d => $('#doctor').append(`<option value="${d.id}">${d.doctorName}</option>`));
+        });
+    });
+
+    $('#doctor, #date').change(function() {
+        let docId = $('#doctor').val();
+        let date = $('#date').val();
+        if(docId && date) {
+            $.get('/get-slots', {doctor_id: docId, date: date}, function(data) {
+                $('#slots').empty().append('<option>Select Time</option>');
+                data.forEach(s => $('#slots').append(`<option value="${s}">${s}</option>`));
+            });
+        }
+    });
+</script>
 @endsection

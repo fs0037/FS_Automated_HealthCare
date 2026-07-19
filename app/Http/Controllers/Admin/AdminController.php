@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\Admin\DoctorSpecialization;
 use App\Models\Admin\Doctor;
+use App\Models\Patient\patient;
 
 
 class AdminController extends Controller
@@ -118,4 +119,11 @@ class AdminController extends Controller
         Doctor::find($id)->delete();
         return back()->with('success', 'Doctor Data deleted !!');
     }
+
+    public function managePatients()
+    {
+        $patients = patient::all(); // ডেটাবেসের tblpatient টেবিল থেকে ডেটা আনবে
+        return view('admin.manage_patients', compact('patients'));
+    }
+
 }

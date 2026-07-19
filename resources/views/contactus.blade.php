@@ -29,6 +29,25 @@
                     </div>
                 </div>
             </div>
+
+            <div class="maps-container wow fadeInUp mb-5" style="padding: 50px 0;">
+                <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3">
+                    <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div><script>(function () {
+                            var setting = {"query":"Department of CSE, Varendra University, Rajshahi, Bangladesh","width":1200,"height":400,"satellite":false,"zoom":12,"placeId":"ChIJ1fzMr7bv-zkRasn_OLtrZTk","cid":"39656bbb38ffc96a","coords":[24.3686, 88.6250],"lang":"en","queryString":"Department of CSE, Varendra University, Rajshahi, Bangladesh","centerCoord":[24.3686,88.6250],"id":"map-9cd199b9cc5410cd3b1ad21cab2e54d3","embed_id":"1328831"};
+                            var d = document;
+                            var s = d.createElement('script');
+                            s.src = 'https://1map.com/js/script-for-user.js?embed_id=1328831';
+                            s.async = true;
+                            s.onload = function (e) {
+                                window.OneMap.initMap(setting)
+                            };
+                            var to = d.getElementsByTagName('script')[0];
+                            to.parentNode.insertBefore(s, to);
+                        })();</script><a href="https://1map.com/map-embed">1 Map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 @endsection

@@ -45,7 +45,7 @@
                         </div>
                     </a>
                     <ul class="sub-menu">
-                        <li><a href="#"><span class="title"> Manage Patients </span></a></li>
+                        <li><a href="{{ route('admin.manage.patients') }}"><span class="title"> Manage Patients </span></a></li>
                     </ul>
                 </li>
                 <li>

@@ -153,6 +153,45 @@ class patientcontroller extends Controller
 
     public function bookAppointmentSubmit(Request $request)
     {
-        return back()->with('success', 'Demo: Your appointment request submitted successfully (Database integration pending)!');
+        \App\Models\Appointment::create([
+            'doctorId' => $request->doctor,
+            'userId' => Session::get('patient_id'),
+            'doctorSpecialization' => $request->Doctorspecialization,
+            'appointmentDate' => $request->appdate,
+            'appointmentTime' => $request->apptime,
+        ]);
+
+        return back()->with('success', 'Appointment booked successfully!');
+    }
+
+    public function getDoctors($specialization) 
+    {
+        $doctors = \App\Models\Admin\Doctor::where('specilization', $specialization)->get();
+        return response()->json($doctors);
+    }
+
+    public function getSlots(Request $request)
+    {
+        $doctorId = $request->doctor_id;
+        $date = $request->date;
+        $startTime = "15:00"; // দুপুর ৩টা
+        $gap = 30; // ৩০ মিনিট গ্যাপ
+        $slots = [];
+
+        // ১০টি স্লট জেনারেট করা হচ্ছে (৩টা থেকে ৭:৩০ পর্যন্ত)
+        for ($i = 0; $i < 10; $i++) {
+            $time = date('H:i', strtotime("+$i * $gap minutes", strtotime($startTime)));
+            
+            // চেক করা হচ্ছে এই সময়ে আগে কোনো অ্যাপয়েন্টমেন্ট আছে কি না
+            $exists = \App\Models\Appointment::where('doctorId', $doctorId)
+                        ->where('appointmentDate', $date)
+                        ->where('appointmentTime', $time)
+                        ->exists();
+            
+            if (!$exists) {
+                $slots[] = $time;
+            }
+        }
+        return response()->json($slots);
     }
 }

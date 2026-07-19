@@ -61,6 +61,9 @@ Route::middleware(['patientAuth'])->group(function () {
     Route::get('/patient-book-appointment', [patientcontroller::class, 'bookAppointment'])->name('patient.book_appointment');
     Route::post('/patient-book-appointment-submit', [patientcontroller::class, 'bookAppointmentSubmit'])->name('patient.book-appointment.submit');
 
+    Route::get('/get-doctors/{specialization}', [PatientController::class, 'getDoctors']);
+    Route::get('/get-slots', [PatientController::class, 'getSlots']);
+
     // Change Password
     Route::get('/patient-change-password', [patientcontroller::class, 'changePassword'])->name('patient.change-password');
     Route::post('/patient-change-password-submit', [patientcontroller::class, 'updatePassword'])->name('patient.update-password');
@@ -99,6 +102,9 @@ Route::middleware(['adminAuth'])->group(function () {
     
     Route::get('/admin/manage-doctors', [AdminController::class, 'manageDoctors'])->name('admin.manage.doctors');
     Route::get('/admin/delete-doctor/{id}', [AdminController::class, 'deleteDoctor'])->name('admin.delete.doctor');
+
+    // Patients Route
+    Route::get('/admin/manage-patients', [AdminController::class, 'managePatients'])->name('admin.manage.patients');
 
 });
 
